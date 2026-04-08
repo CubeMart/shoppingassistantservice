@@ -37,6 +37,27 @@ User sends: room image + text prompt
 
 **`POST /`**
 
+### Required Request Fields
+
+The service expects a JSON body with these fields:
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `message` | string | Yes | Natural-language shopping request from the user |
+| `image` | string | Yes | Public image URL for the room or space to analyze |
+
+### Required Environment Variables
+
+These variables must be set before the service can answer requests:
+
+| Variable | Description |
+|---|---|
+| `OPENAI_API_KEY` | OpenAI API key used for GPT-4o and embeddings |
+| `DATABASE_URL` | pgvector/PostgreSQL connection string |
+| `COLLECTION_NAME` | PGVector collection that stores embedded products |
+
+### Example Request
+
 ```json
 {
   "message": "I need a lamp for my living room",
@@ -44,13 +65,30 @@ User sends: room image + text prompt
 }
 ```
 
-**Response:**
+### Example cURL
+
+```bash
+curl -X POST http://localhost:8080/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": "I need a lamp for my living room",
+    "image": "https://example.com/room.jpg"
+  }'
+```
+
+### Example Response
 
 ```json
 {
   "content": "Your room has a modern minimalist style with neutral tones... I recommend the Bamboo Glass Jar... [OLJCESPC7Z], [L9ECAV7KIM], [2ZYFJ3GM2N]"
 }
 ```
+
+### Response Format Notes
+
+- The service returns a JSON object with a single `content` field.
+- The `content` value is generated text, not a structured product list.
+- The recommended product IDs are appended inside the text response in bracketed form, for example `[OLJCESPC7Z]`.
 
 ---
 

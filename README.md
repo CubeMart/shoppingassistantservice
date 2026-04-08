@@ -1,5 +1,9 @@
 # CubeMart Shopping Assistant Service
 
+![CubeMart](https://img.shields.io/badge/CubeMart-AI%20Assistant-0f766e)
+![Python](https://img.shields.io/badge/Python-Service-3776AB)
+![OpenAI](https://img.shields.io/badge/OpenAI-RAG-1f2937)
+
 An AI-powered shopping assistant for CubeMart that analyzes room images and recommends matching products using **OpenAI GPT-4o** and a **PostgreSQL + pgvector** vector store.
 
 ---

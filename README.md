@@ -1,6 +1,6 @@
-# Shopping Assistant Service
+# CubeMart Shopping Assistant Service
 
-An AI-powered shopping assistant that analyzes a room image and recommends matching products using **OpenAI GPT-4o** and a **PostgreSQL + pgvector** vector store.
+An AI-powered shopping assistant for CubeMart that analyzes room images and recommends matching products using **OpenAI GPT-4o** and a **PostgreSQL + pgvector** vector store.
 
 ---
 
